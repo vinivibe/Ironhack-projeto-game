@@ -6,10 +6,13 @@ class Ninja{
         this.height = height;
     }
 
-    drawPlayer(){
-        playerImg.src = '../Img/Attack__000.png'
-        context.drawImage(playerImg, 0, 0, 70, this.height, this.eixoX, this.eixoY,this.width,this.height);
+    drawPlayer(imagem){
+        context.drawImage(imagem, 0, 0, 70, this.height, this.eixoX, this.eixoY,this.width,this.height);
      } 
+    drawAttack(){
+        attackImg.src = '../Img/Attack__001.png'
+        context.drawImage(attackImg, 0, 0, 70, this.height, this.eixoX, this.eixoY,this.width,this.height);
+    }
     
 }
 

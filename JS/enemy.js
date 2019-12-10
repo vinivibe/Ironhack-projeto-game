@@ -4,6 +4,8 @@ class Enemy{
         this.eixoY = y;
         this.width = width;
         this.height = height;
+        this.life = 3;
+
     }
 
     drawEnemy(){
@@ -11,7 +13,12 @@ class Enemy{
         context.drawImage(enemyImg,this.eixoX, this.eixoY,this.width,this.height);
     }
     moving(){
-        this.eixoX -= 1
+        this.eixoX -= 2.5
+    }
+    receiveDamage(){
+        this.life -= 1;
     }
 
+
 }
+// 
