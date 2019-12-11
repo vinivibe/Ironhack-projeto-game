@@ -84,7 +84,7 @@ switch (e.keyCode) {
 function attack(){
   attackstatus = true;
   enemies.forEach(function(zumbi,idx){
-  if(zumbi.eixoX <= ninja.eixoX +110 && zumbi.eixoX >= ninja.eixoX +45){
+  if(zumbi.eixoX <= ninja.eixoX +120 && zumbi.eixoX >= ninja.eixoX +40){
      zumbi.receiveDamage()
      console.log(zumbi.life)
      console.log(attackstatus)
@@ -101,13 +101,14 @@ function death(){
   })
 }
 
-function gameOver(){
+
+  function gameOver(){
   enemies.forEach(function(zumbi,idx){
     if (zumbi.eixoX < -49 ){
       zumbiswin +=1
     }
   });
-  if (zumbiswin >= 2){
+  if (zumbiswin >= 5){
     console.log('GAME OVER')
     drawGameOver()
     return
@@ -118,8 +119,8 @@ function gameOver(){
 
 
 
-
-function updateGameArea() {
+// function updateGameArea()
+const updateGameArea = () => {
   console.log('Oii')
     fundo();
     drawLife();
@@ -129,7 +130,7 @@ function updateGameArea() {
       ninja.drawPlayer(playerImg)
     }
     attackstatus = false
-    if(frame % 360 === 0){
+    if(frame % 60 === 0){
         enemies.push(new Enemy(canvas.width,400,90,107));
     };
     // console.log(updateGameArea)
