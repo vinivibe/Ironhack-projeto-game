@@ -1,12 +1,11 @@
-console.log('Salve!!!')
 let fundoImg = new Image();
 let playerImg = new Image();
-playerImg.src = 'Img/Attack__000.png';
+playerImg.src = 'Img/Attack0.png';
 let enemyImg = new Image();
 let lifeImg = new Image();
 let attackImg = new Image();
 let gameOverimg= new Image();
-attackImg.src = 'Img/Attack__001.png'
+attackImg.src = 'Img/Attack1.png'
 let bigzumbi = new Image(); 
 bigzumbi.src ='Img/boss.png';
 const canvas = document.getElementById('canvas');
@@ -14,11 +13,10 @@ const context = canvas.getContext('2d');
 const enemies =[];
 const bigenemies = [];
 let attackstatus = false;
-let zumbiswin = 0
+let life = 0;
 let frame = 0;
 let myReq;
-
-
+let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function fundo(){
     fundoImg.src = "Img/fundo.jpg";
@@ -26,27 +24,68 @@ function fundo(){
 }
 
 function drawLife(){
-  lifeImg.src='Img/hearts.png';
+    
+  // context.font = "25px serif";
+  // context.fillStyle = "black";
+  // context.fillText("Life: " + life, 100, 50);
+
+
+  if(life === 1){
+    lifeImg.src='Img/hearts.png';
     context.drawImage(lifeImg,50,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,100,30)
     lifeImg.src='Img/hearts.png';
     context.drawImage(lifeImg,150,30)
     lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,200,30)
+  } else if (life === 2){
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,50,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,100,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,150,30)
+    lifeImg.src='Img/hearts.png';
+  } else if (life === 3){
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,50,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,100,30)
+    lifeImg.src='Img/hearts.png';
+  } else if (life === 4){
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,50,30)
+    lifeImg.src='Img/hearts.png';
+  } else {
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,50,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,100,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,150,30)
+    lifeImg.src='Img/hearts.png';
+    context.drawImage(lifeImg,200,30)
+    lifeImg.src='Img/hearts.png';
     context.drawImage(lifeImg,250,30)
+  }
+   
 }
 
 function score() {
   var points = Math.floor(frame / 10);
-  context.font = "18px serif";
+  context.font = "29px fantasy";
   context.fillStyle = "black";
-  context.fillText("Score: " + points, 700, 50);
+  context.fillText("SCORE  " + points, 600, 50);
 }
+
 
   function drawGameOver(){
     gameOverimg.src='Img/gameover.png';
     context.drawImage(gameOverimg, 0, 0)
   }
 
-let ninja = new Ninja(300,400,80,107);
+let ninja = new Ninja(300,400,100,109);
 
 
 document.onkeydown = function(e) {
@@ -62,21 +101,23 @@ switch (e.keyCode) {
         case 37: // left arrow
         if (ninja.eixoX < 8){
             ninja.eixoX = 5;
-            console.log('Bateu!')
+            // console.log('Bateu!')
         } else {
             ninja.eixoX -= 30;
-        } console.log('left')
+        } 
+        // console.log('left')
           break;
         case 39: // right arrow
         if(ninja.eixoX + ninja.width >= canvas.width){
             ninja.eixoX = canvas.width - ninja.width;
-            console.log('Bateu!')
+            // console.log('Bateu!')
         // } else if (ninja.eixoX > (enemy.eixoX -47)){
         //     ninja.eixoX - enemy.eixoY;
         }
         else {
             ninja.eixoX += 10;
-        } console.log('right')
+        } 
+        // console.log('right')
           break;
         case 32 : //space
         attack()
@@ -87,14 +128,16 @@ switch (e.keyCode) {
       }
 
       function machineZumbi(){
-        if(frame % 340 === 0){
-          enemies.push(new Enemy(canvas.width,400,90,107));
+        if(frame % 120 === 0){
+          enemies.push(new Enemy(canvas.width,400,70,107));
       };
       enemies.forEach(function(zumbi,idx) {
           zumbi.drawEnemy();
           zumbi.moving();
-          if(zumbi.eixoX < -50){
+          if(zumbi.eixoX < 0 - zumbi.width){
               enemies.splice(idx,1)
+              life +=1
+
           }
       })
       }
@@ -103,35 +146,43 @@ switch (e.keyCode) {
         if(frame % 4000 === 0){
           bigenemies.push(new BigEnemy(canvas.width,200,220,300));
       };
-      // console.log(updateGameArea)
+
       bigenemies.forEach(function(bigzumbi,idx) {
           bigzumbi.drawBigEnemy();
           bigzumbi.movingg();
           if(bigzumbi.eixoX < -50){
               bigenemies.splice(idx,1)
+              life +=1
           }
       })
       }
-
+let count = 0
 function attack(){
-  attackstatus = true;
+  setInterval(() => {
+    if (count <= 9) {
+      ninja.drawAttack(count);
+      count += 1;
+    } else {
+      clearInterval();
+    }
+  }, 1000)
+  count = 0;
   enemies.forEach(function(zumbi,idx){
-  if(zumbi.eixoX <= ninja.eixoX +120 && zumbi.eixoX >= ninja.eixoX +40){
-     zumbi.receiveDamage()
-     console.log(zumbi.life)
-     console.log(attackstatus)
-  }
-});
-  // attackstatus = false;
+    if(zumbi.eixoX <= ninja.eixoX +120 && zumbi.eixoX >= ninja.eixoX +40){
+      zumbi.receiveDamage()
+      // console.log(zumbi.life)
+      // console.log(attackstatus)
+    }
+  });
 }
 
 function attackBIG(){
   attackstatus = true;
-  bigenemies.forEach(function(bigzumbi,idx){
+  bigenemies.forEach((bigzumbi,idx) => {
   if(bigzumbi.eixoX <= ninja.eixoX +120 && bigzumbi.eixoX >= ninja.eixoX +40){
      bigzumbi.receiveDamage()
-     console.log(bigzumbi.life)
-     console.log(attackstatus)
+    //  console.log(bigzumbi.life)
+    //  console.log(attackstatus)
   }
 });
   // attackstatus = false;
@@ -139,16 +190,17 @@ function attackBIG(){
 
 function death(){
   enemies.forEach(function(zumbi,idx){
-    if (zumbi.life == 0){
-      zumbi.eixoX = 1000
+    if (zumbi.life === 0){
+      enemies.splice(idx,1)
     }
   })
 }
 
 function deathBigZumbi(){
   bigenemies.forEach(function(bigzumbi,idx){
-    if (bigzumbi.life == 0){
-      bigzumbi.eixoX = 1000
+    if (bigzumbi.life === 0){
+      bigenemies.splice(idx,1)
+
     }
   })
 }
@@ -156,11 +208,9 @@ function deathBigZumbi(){
 
   function gameOver(){
   enemies.forEach(function(zumbi,idx){
-    if (zumbi.eixoX < -49 ){
-      zumbiswin +=1
-    }
+    // console.log(zumbi.eixoX)
   });
-  if (zumbiswin >= 5){
+  if (life >= 5){
     drawGameOver()
     return
     cancelAnimationFrame(myReq);
@@ -170,27 +220,19 @@ function deathBigZumbi(){
 
 
 
-// function updateGameArea()
 const updateGameArea = () => {
     fundo();
     drawLife();
-    if(attackstatus){
-      ninja.drawAttack();
-    } else {
-      ninja.drawPlayer(playerImg)
-    }
-    attackstatus = false;
-
+    ninja.drawPlayer(playerImg);
     machineBigZumbi()
     machineZumbi()
-    //  adicione aqui 
-    
-    frame += 2;
+    frame += 1;
     score()    
     death()
     deathBigZumbi()
     myReq = requestAnimationFrame(updateGameArea);
     gameOver()
+    // console.log(life)
   }
 
   myReq = requestAnimationFrame(updateGameArea);

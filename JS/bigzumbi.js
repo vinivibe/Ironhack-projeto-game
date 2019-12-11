@@ -4,7 +4,7 @@ class BigEnemy{
         this.eixoY = y;
         this.width = width;
         this.height = height;
-        this.life = 12;
+        this.life = 5;
 
     }
 
