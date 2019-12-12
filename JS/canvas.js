@@ -8,6 +8,7 @@ let gameOverimg= new Image();
 attackImg.src = 'Img/Attack1.png'
 let bigzumbi = new Image(); 
 bigzumbi.src ='Img/boss.png';
+let fundodois = new Image();
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const enemies =[];
@@ -19,8 +20,16 @@ let myReq;
 let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function fundo(){
+  if(frame >= 0 && frame <= 2500){
     fundoImg.src = "Img/fundo.jpg";
     context.drawImage(fundoImg, 0, 0); 
+  } else if(frame > 2500 && frame <= 4500){
+    fundodois.src = "Img/fundo5.png";
+    context.drawImage(fundodois, 0, 0); 
+  } else {
+    fundoImg.src = "Img/fundo.jpg";
+    context.drawImage(fundoImg, 0, 0);
+}
 }
 
 function drawLife(){
