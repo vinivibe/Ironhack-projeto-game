@@ -9,7 +9,7 @@ class Enemy{
     }
 
     drawEnemy(){
-        enemyImg.src = 'Img/Zumbi1.png'
+        enemyImg.src = 'Img/zumbi1.png'
         context.drawImage(enemyImg,this.eixoX, this.eixoY,this.width,this.height);
     }
     moving(){
