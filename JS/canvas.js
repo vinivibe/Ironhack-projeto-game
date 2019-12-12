@@ -1,3 +1,36 @@
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+const enemies =[];
+const bigenemies = [];
+
+let fundoImg = new Image();
+let playerImg = new Image();
+playerImg.src = 'Img/Attack0.png';
+let enemyImg = new Image();
+let lifeImg = new Image();
+let attackImg = new Image();
+let gameOverimg= new Image();
+attackImg.src = 'Img/Attack5.png';
+let bigzumbi = new Image();
+bigzumbi.src ='Img/boss.png';
+let fundodois = new Image();
+let fundotres = new Image();
+let fundoquatro = new Image();
+let fundocinco = new Image();
+let fundodez = new Image();
+let fundoonze = new Image();
+let mortalkombat = new Image();
+let kunaiImg = new Image();
+let attackstatus = false;
+let life = 5;
+let frame = 0;
+let myReq;
+let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const startgame = () =>{
+myReq = requestAnimationFrame(updateGameArea);
+} 
+
 const clearCanvas = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
 }
@@ -13,10 +46,12 @@ function fundo() {
     canvas.style.backgroundImage = 'url("Img/fundo8.jpg")';
   } else if (frame <= 5000) {
     canvas.style.backgroundImage = 'url("Img/fundo9.jpg")';
-  } else {
+  } else if ( frame <= 6000) {
+    canvas.style.backgroundImage = 'url("Img/fundo2.png")';
+  } else if ( frame <= 7000){
     canvas.style.backgroundImage = 'url("Img/fundo10.png")';
-    mortalkombat.src = 'Img/Toasty.png';
-    context.drawImage(mortalkombat, 600, 40);
+  } else {
+    canvas.style.backgroundImage = 'url("Img/fundo.jpg")';
   }
 }
 
@@ -75,6 +110,12 @@ document.onkeydown = function(e) {
       break;
     case 80: //P
       pauseGame();
+      break;
+    case 13 : // enter
+      startgame();
+      break;
+    case 82 : // ult
+      special();
   }
 }
 
@@ -96,7 +137,7 @@ document.onkeydown = function(e) {
       }
 
       function machineBigZumbi(){
-        if(frame % 4000 === 0){
+        if(frame % 1000 === 0){
           bigenemies.push(new BigEnemy(canvas.width,200,220,300));
       };
 
@@ -134,6 +175,7 @@ function attack() {
   enemies.forEach((zumbi) => {
     if (zumbi.eixoX <= ninja.eixoX + 120 && zumbi.eixoX >= ninja.eixoX + 40) {
       zumbi.receiveDamage();
+      console.log(zumbi.life)
     }
   });
 }
@@ -146,6 +188,9 @@ function attackBIG() {
 });
 }
 
+const special = () => {
+
+}
 function death(){
   enemies.forEach(function(zumbi,idx){
     if (zumbi.life === 0){
@@ -208,7 +253,7 @@ const updateGameArea = () => {
   death()
   deathBigZumbi()
   myReq = requestAnimationFrame(updateGameArea);
-  // gameOver();
+  gameOver();
 };
 
-myReq = requestAnimationFrame(updateGameArea);
+
