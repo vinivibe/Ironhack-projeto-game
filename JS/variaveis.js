@@ -1,3 +1,8 @@
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+const enemies =[];
+const bigenemies = [];
+
 let fundoImg = new Image();
 let playerImg = new Image();
 playerImg.src = 'Img/Attack0.png';
@@ -5,8 +10,8 @@ let enemyImg = new Image();
 let lifeImg = new Image();
 let attackImg = new Image();
 let gameOverimg= new Image();
-attackImg.src = 'Img/Attack1.png'
-let bigzumbi = new Image(); 
+attackImg.src = 'Img/Attack5.png';
+let bigzumbi = new Image();
 bigzumbi.src ='Img/boss.png';
 let fundodois = new Image();
 let fundotres = new Image();
@@ -14,12 +19,8 @@ let fundoquatro = new Image();
 let fundocinco = new Image();
 let fundodez = new Image();
 let mortalkombat = new Image();
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
-const enemies =[];
-const bigenemies = [];
 let attackstatus = false;
-let life = 0;
+let life = 5;
 let frame = 0;
 let myReq;
 let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];

@@ -10,11 +10,9 @@ class Ninja{
         context.drawImage(imagem, this.eixoX, this.eixoY, this.width, this.height);
     } 
     drawAttack(num){
-        attackImg = new Image();
         attackImg.src = `Img/Attack${num}.png`;
-        console.log('IMGGGGG', attackImg);
-        console.log('NUMMMM',num);
         context.drawImage(attackImg, this.eixoX, this.eixoY,this.width,this.height);
+        console.log(attackImg);
         
     }
     
