@@ -4,7 +4,7 @@ class BigEnemy{
         this.eixoY = y;
         this.width = width;
         this.height = height;
-        this.life = 5;
+        this.life = 10;
 
     }
 
@@ -13,7 +13,7 @@ class BigEnemy{
         context.drawImage(bigzumbi,this.eixoX, this.eixoY,this.width,this.height);
     }
     movingg(){
-        this.eixoX -= 1
+        this.eixoX -= 1.5
     }
     receiveDamage(){
         this.life -= 1;
