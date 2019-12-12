@@ -55,7 +55,7 @@ Você possui cinco vidas e deve sobreviver o maximo possivel gerando um score po
 <p> Clone ou realize o download deste projeto e abra o arquivo index.html com seu navegador. Boa Diversão!</p>
 
 <h2> Considerações finais </h2> 
-<p> Esté é um projeto em constante evolução por isso caso tenha algum feedback não deixe de enviar. Além disso após o curso irei adicionar funcionalidades como (Poder especial, novos personagens) e correções.</p>
+<p> Esté é um projeto em constante evolução por isso caso tenha algum feedback não deixe de enviar. Além disso após o curso irei adicionar funcionalidades como (Poder especial, novos personagens, arte de inicio, ranking, mapas com mudança climatica.) e correções.</p>
 
 
 
