@@ -137,7 +137,7 @@ switch (e.keyCode) {
           zumbi.moving();
           if(zumbi.eixoX < 0 - zumbi.width){
               enemies.splice(idx,1)
-              life +=1
+              life -=1
 
           }
       })
@@ -153,7 +153,7 @@ switch (e.keyCode) {
           bigzumbi.movingg();
           if(bigzumbi.eixoX < -50){
               bigenemies.splice(idx,1)
-              life +=1
+              life -=1
           }
       })
       }
