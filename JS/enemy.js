@@ -26,7 +26,7 @@ class Enemy{
         this.eixoX -= 5;
         console.log('stg4')
        } else if (frame > 4500){
-        this.eixoX -= 6;
+        this.eixoX -= 10;
         console.log('stg5')
        }
 

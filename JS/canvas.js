@@ -1,34 +1,26 @@
-let fundoImg = new Image();
-let playerImg = new Image();
-playerImg.src = 'Img/Attack0.png';
-let enemyImg = new Image();
-let lifeImg = new Image();
-let attackImg = new Image();
-let gameOverimg= new Image();
-attackImg.src = 'Img/Attack1.png'
-let bigzumbi = new Image(); 
-bigzumbi.src ='Img/boss.png';
-let fundodois = new Image();
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
-const enemies =[];
-const bigenemies = [];
-let attackstatus = false;
-let life = 0;
-let frame = 0;
-let myReq;
-let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 function fundo(){
-  if(frame >= 0 && frame <= 2500){
+  if(frame >= 0 && frame <= 1500){
     fundoImg.src = "Img/fundo.jpg";
     context.drawImage(fundoImg, 0, 0); 
-  } else if(frame > 2500 && frame <= 4500){
+  } else if(frame > 1500 && frame <= 2500){
     fundodois.src = "Img/fundo5.png";
     context.drawImage(fundodois, 0, 0); 
+  } else if (frame > 2500 && frame <= 3500 ) {
+    fundotres.src = "Img/fundo6.png";
+    context.drawImage(fundotres, 0, 0); 
+  } else if (frame > 3500 && frame <= 4500) {
+    fundoquatro.src = "Img/fundo8.jpg";
+    context.drawImage(fundoquatro, 0, 0);
+  } else if (frame > 4500 && frame <= 5000){
+    fundocinco.src = "Img/fundo9.jpg";
+    context.drawImage(fundocinco, 0, 0);
   } else {
-    fundoImg.src = "Img/fundo.jpg";
-    context.drawImage(fundoImg, 0, 0);
+    fundodez.src = "Img/fundo10.png";
+    context.drawImage(fundodez, 0, 0);
+    mortalkombat.src = "Img/Toasty.png";
+    context.drawImage(mortalkombat, 600, 40);
 }
 }
 
@@ -240,8 +232,8 @@ const updateGameArea = () => {
     death()
     deathBigZumbi()
     myReq = requestAnimationFrame(updateGameArea);
-    gameOver()
-    // console.log(life)
+    // gameOver()
+    console.log(life)
   }
 
   myReq = requestAnimationFrame(updateGameArea);
