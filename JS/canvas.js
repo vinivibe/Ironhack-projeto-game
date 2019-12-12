@@ -255,5 +255,3 @@ const updateGameArea = () => {
   myReq = requestAnimationFrame(updateGameArea);
   gameOver();
 };
-
-

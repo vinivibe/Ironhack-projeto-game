@@ -18,6 +18,4 @@ class BigEnemy{
     receiveDamage(){
         this.life -= 1;
     }
-
-
 }
