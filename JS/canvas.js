@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const enemies =[];
 const bigenemies = [];
+const specialkunai = [];
 
 let fundoImg = new Image();
 let playerImg = new Image();
@@ -13,6 +14,7 @@ let gameOverimg= new Image();
 attackImg.src = 'Img/Attack5.png';
 let bigzumbi = new Image();
 bigzumbi.src ='Img/boss.png';
+let fundoinicio = new Image();
 let fundodois = new Image();
 let fundotres = new Image();
 let fundoquatro = new Image();
@@ -26,6 +28,8 @@ let life = 5;
 let frame = 0;
 let myReq;
 let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+canvas.style.backgroundImage = 'url("Img/fundoinicio.png")';
 
 const startgame = () =>{
 myReq = requestAnimationFrame(updateGameArea);
@@ -188,9 +192,23 @@ function attackBIG() {
 });
 }
 
-const special = () => {
+// const special = () => {
+//   specialkunai.push(new Special(ninja.eixoX + 50,ninja.eixoY,70,80));
+  
 
-}
+//   specialkunai.forEach(function(special,idx) {
+//     special.drawKunai();
+//     special.movingg();
+//     if(special.eixoX > 800){
+//         special.splice(idx,1)
+//         if (special.eixoX >= enemies.eixoX) {
+//           zumbi.receiveDamage()
+//         }
+//     }
+// // })
+
+
+// }
 function death(){
   enemies.forEach(function(zumbi,idx){
     if (zumbi.life === 0){
@@ -246,6 +264,7 @@ const updateGameArea = () => {
     attackImg.src = 'Img/Attack6.png';
     ninja.drawPlayer(attackImg);
   }
+  // special();
   machineBigZumbi()
   machineZumbi()
   frame += 1;
