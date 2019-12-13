@@ -28,11 +28,11 @@ class Enemy{
        } else if (frame > 5500 && frame <= 6500){
         this.eixoX -= 4;
         console.log('stg5')
-       } else if (frame > 6500 && frame <= 7500){
-        this.eixoX -= 3;
+       } else if (frame > 6500 && frame <= 8500){
+        this.eixoX -= 5;
         console.log('stg5')
        } else {
-        this.eixoX -= 6;
+        this.eixoX -= 6.5;
         console.log('stg6') 
        }
 

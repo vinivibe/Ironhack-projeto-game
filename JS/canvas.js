@@ -24,7 +24,7 @@ let fundoonze = new Image();
 let mortalkombat = new Image();
 let kunaiImg = new Image();
 let attackstatus = false;
-let life = 5;
+let life = 7;
 let frame = 0;
 let myReq;
 let attackMove = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -47,13 +47,15 @@ function fundo() {
   } else if (frame <= 3500) {
     canvas.style.backgroundImage = 'url("Img/fundo6.png")';
   } else if (frame <= 4500) {
-    canvas.style.backgroundImage = 'url("Img/fundo8.jpg")';
-  } else if (frame <= 5000) {
-    canvas.style.backgroundImage = 'url("Img/fundo9.jpg")';
-  } else if ( frame <= 6000) {
     canvas.style.backgroundImage = 'url("Img/fundo2.png")';
-  } else if ( frame <= 7000){
+  } else if (frame <= 5500) {
+    canvas.style.backgroundImage = 'url("Img/fundo9.jpg")';
+  } else if ( frame <= 6500) {
+    canvas.style.backgroundImage = 'url("Img/fundo8.jpg")';
+  } else if ( frame <= 7500){
     canvas.style.backgroundImage = 'url("Img/fundo10.png")';
+  } else if (frame <= 8500) {
+    canvas.style.backgroundImage = 'url("Img/fundo6.png")';
   } else {
     canvas.style.backgroundImage = 'url("Img/fundo.jpg")';
   }
@@ -151,7 +153,7 @@ document.onkeydown = function(e) {
           if(bigzumbi.eixoX < -50){
               bigenemies.splice(idx,1)
               if (life > 0) {
-                life -=1
+                life -=3
               }
           }
       })
