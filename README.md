@@ -32,7 +32,7 @@ You have five lives and must survive as long as possible by generating a score f
 (https://ibb.co/Lh5STHX)
 
 <h2> Jobability Details and Rules </h2>
-<ul> You start with 5 hearts. </ul>
+<ul> You start with 7 hearts. </ul>
 <ul> Your attack deals 1 damage. </ul>
 <ul> Minor enemies have 3 life. If not killed remove 1 ninja heart. </ul>
 <ul> Larger enemies have 10 health. And if not killed remove 2 hearts from the ninja. </ul>
