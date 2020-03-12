@@ -26,10 +26,10 @@ You have five lives and must survive as long as possible by generating a score f
 
 <p> Photos about the game: </p>
 
-<div>
+
 <img width="403" alt="Imgdoc1" src="https://user-images.githubusercontent.com/57631805/70747983-d55f7180-1d07-11ea-82f9-273ff1dc4c50.png">
 <img width="403" alt="Imgdoc1" src="https://user-images.githubusercontent.com/57631805/70747983-d55f7180-1d07-11ea-82f9-273ff1dc4c50.png">
-</div>
+
  
 
 
